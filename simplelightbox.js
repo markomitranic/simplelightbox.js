@@ -12,11 +12,15 @@
         } else {
             // Create options object
             var options = new optionsPrototype(params);
-            // The rest
-            validateOptions(options);
-            initLightbox(options);
-            createCurtain(options);
-            startListeners(options);
+            // Validate all parameters
+            if (validateOptions(options) == 'error') {
+                return;
+            } else {
+                // Do the boogie!
+                initLightbox(options);
+                createCurtain(options);
+                startListeners(options);
+            }
         }
 
         function optionsPrototype(params) {
@@ -43,11 +47,11 @@
             }
             if ((options.curtainId) && options.curtainId.substring(0, 1) !== '#') {
                 console.log('Curtain ID must begin with #');
-                return;
+                return 'error';
             }
             if ((options.closeButtonId) && options.closeButtonId.substring(0, 1) !== '#') {
                 console.log('Button ID must begin with #');
-                return;
+                return 'error';
             }
         }
 
