@@ -18,17 +18,29 @@
 	</div>
 
 </aside> 
-	  
-	<main>
-		<header>
-			<h1>No nonsense, simple Lightbox plugin.</h1>
-			<p><strong>Simple usage, no styles, no pseudo-elements, no nonsense.</strong></p>
-		</header> 
 
-		<article>
-			<p>In short, add the <code>simpleplugin.js</code> and initialize method:</p>
-<pre>
-&lt;script&gt;
+<main>
+	<header>
+		<h1>No nonsense, simple Lightbox plugin.</h1>
+		<p><strong>Simple usage, no styles, no pseudo-elements, no nonsense.</strong></p>
+	</header> 
+
+	<section>
+		<a href="http://markomitranic.github.io/simplelightbox.js/">See the full Documentation on GitHub</a>
+
+		<h2>Prelude</h2>
+		<p><strong>So, am making a website, see, and i need to have a lightbox at one point, right?</strong></p>
+		<p>I go to Google, search for a lightbox, and find a bunch of 30+kb <strong>omni-potent plugins</strong> with all these spectacular options and styles. Some of them even use additional external plugins! If i would try to use any of them, i would find out that there is little-to-none documentation on real world usage.</p>
+		<p>So 2h later, i am still pulling my hair out, trying to overwrite !important inline styles that the stupid plugin has embeded. I finish doing that, now the curtain doesn't work for some reason. After 20min of fixing the curtain, everything works fine, but i begin to notice that the animation is a bit laggy.</p>
+		<p>I burned all <code>.js</code> files in a moment of unimaginable fury and wrote my own plugin within 20minutes.</p>
+	</section>
+
+</main>
+	  
+
+<script src="simplelightbox.js"></script>
+<script>
+// Initialize the Simple Lightbox
 	$('.dugme').lightbox({
 	  button: '.dugme',
 	  lightbox: '.lightbox',
@@ -36,109 +48,6 @@
 	  closeButtonId: '#close',
 	  effect: 'fade'
 	});
-&lt;/script&gt;
-</pre>
-			<p>Now for the long version:</p>
-			<hr>
-		</article>
-
-
-
-		<section>
-			<h2>1. Prelude</h2>
-			<p><strong>So, am making a website, see, and i need to have a lightbox at one point, right?</strong></p>
-			<p>I go to Google, search for a lightbox, and find a bunch of 30+kb <strong>omni-potent plugins</strong> with all these spectacular options and styles. Some of them even use additional external plugins! If i would try to use any of them, i would find out that there is little-to-none documentation on real world usage.</p>
-			<p>So 2h later, i am still pulling my hair out, trying to overwrite !important inline styles that the stupid plugin has embeded. I finish doing that, now the curtain doesn't work for some reason. After 20min of fixing the curtain, everything works fine, but i begin to notice that the animation is a bit laggy.</p>
-			<p>I burned all <code>.js</code> files in a moment of unimaginable fury and wrote my own plugin within 20minutes.</p>
-		</section>
-
-		<section>
-			<h2>2. Usage for Dummies</h2>
-			<ul>
-				<li>Have jQuery.</li>
-				<li>Add the plugin <code>simpleplugin.js</code></li>
-				<li>Feed the plugin with the right parameters</li>
-			</ul>
-
-			<h3>Have jQuery</h3>
-			<p>This plugin requires jQuery, since it uses jQuery selectors and simpler jQuery methods like <code>.on() | .toggle() | .css()</code> Also, this code itself is wrapped up as a jQuery plugin.</p>
-			<h3>Add the plugin .js</h3>
-			<p>One should embed the <code>simpleplugin.js</code> on the bottom of the body. This is done by adding a line just before closing the body tag on the page.</p>
-			<pre>&lt;script src=&quot;simplelightbox.js&quot;&gt;&lt;/script&gt;</pre>
-			<h3>Feed the plugin</h3>
-			<p>In order to work, our plugin needs some information. Add this code within <code>&lt;script&gt;&lt;/script&gt;</code> tags, after the plugin inclusion.</p>
-<pre>
-&lt;script&gt;
-	$('.dugme').lightbox({
-	  button: '.dugme',
-	  lightbox: '.lightbox',
-	  curtainId: '#curtain',
-	  closeButtonId: '#close',
-	  effect: 'fade'
-	});
-&lt;/script&gt;
-</pre>
-			<p>Here are some details about the parameters:</p>
-			<ul>
-				<li><code>button = [selector string]</code> (You must specify the jQuery selector for the button that will open the lightbox)</li>
-				<li><code>lightbox = [selector string]</code> (Also you must specify the jQuery selector for the element that you want to be shown.)</li>
-				<li class="optional"><code>curtainId = [selector string]</code> (OPTIONAL: By default, lugin will create its own curtain with the ID #curtain. But if you want it named anything else, you may specify the ID here.)</li>
-				<li class="optional"><code>closeButtonId = [selector string]</code> (OPTIONAL: You can define additional button ID that will close the lightbox. People usually put X button within the lightbox itself.)</li>
-				<li class="optional"><code>effect = [string]</code> (OPTIONAL: slide, zoom, fade[default])</li>
-			</ul>
-		</section>
-		<section>
-			<h2>3. Pros & Cons</h2>
-			<p>Pros are evident. You can style your elements however you may like. Plugin will not care about them.</p>
-
-			<p>I am not a magician, so there ought to be some pros and cons.</p>
-			<p>The plugin adds almost no css. Almost? Well since it creates a new #curtain element, it  embeds some inline styles to it:</p>
-<pre>
-'display' : 'none',	// Hide it
-'height' : '100vh',	// Cover the entire window
-'width' : '100vw',	// Cover the entire window
-'z-index' : '99998',	// Be on top of everything
-'position' : 'fixed',	// Position 
-'top' : 0,		// Position
-'left' : 0,		// Position
-'background-color' : 'rgba(0,0,0,0.5)'
-</pre>
-		<p>But wait, that is not the main issue here. In order to hide and show the lightbox we need to add some styles to it also. This may mean that some of your CSS properties will get overwritten.</p>
-<pre>
-'display': 'none',
-'z-index': '99999',
-'position' : 'fixed',
-'top' : '50%',
-'left' : '50%',
-'transform' : 'translate(-50%,-50%)'
-</pre>
-		<p>So if you would like to make something different, you would need to edit these lines in the plugin <code>.js</code></p>
-		<hr>
-		</section>
-
-		<section>
-			<h2>Towards the future, and beyond...</h2>
-			<p>This plugin is not actively developed, but i have some ideas for the future:</p>
-			<ul>
-				<li>Allow parameter to change the position fixed/relative for <code>#lightbox</code></li>
-				<li>Transition effects parameter was actually never written.</li>
-				<li>Allow user to set <code>z-index</code> of both elements via parameters</li>
-				<li>Allow user to pick the rgba color for the <code>#curtain</code></li>
-			</ul>
-		</section>
-	</main>
-	  
-
-  	<script src="simplelightbox.js"></script>
-  	<script>
-  	// Initialize the Simple Lightbox
-		$('.dugme').lightbox({
-		  button: '.dugme',
-		  lightbox: '.lightbox',
-		  curtainId: '#curtain',
-		  closeButtonId: '#close',
-		  effect: 'fade'
-		});
-	</script>
+</script>
 </body>
 </html>

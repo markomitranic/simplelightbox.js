@@ -6,21 +6,6 @@ main {
 	background-color: #F3F2FF;
 	padding: 20px;
 }
-code, pre {
-	background-color: #D0CFDE;
-    border-radius: 3px;
-    border: 1px solid #A9A8B9;
-}
-pre {
-	padding: 20px;
-	overflow: auto;
-}
-.optional {
-	color: #0F9270;
-}
-li {
-	padding: 10px 0;
-}
 /* Some styling to make the lightbox and button pretty */
 /* NONE OF THIS IS NEEDED FOR THE PLUGIN TO WORK!!! */
 .dugme {
