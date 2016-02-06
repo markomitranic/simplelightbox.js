@@ -1,49 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <title>Simplelightbox.js by markomitranic</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <title>Simplelightbox.js by markomitranic</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
+    <div class="wrapper">
+      <header>
         <h1>Simplelightbox.js</h1>
-        <h2>No nonsense, simple Lightbox plugin. Simple usage, no styles, no pseudo-elements, no nonsense.</h2>
-        <a href="https://github.com/markomitranic/simplelightbox.js" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
-
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+        <p>No nonsense, simple Lightbox plugin. Simple usage, no styles, no pseudo-elements, no nonsense.</p>
+        <p class="view"><a href="https://github.com/markomitranic/simplelightbox.js">View the Project on GitHub <small>markomitranic/simplelightbox.js</small></a></p>
+        <ul>
+          <li><a href="https://github.com/markomitranic/simplelightbox.js/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/markomitranic/simplelightbox.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/markomitranic/simplelightbox.js">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
 <a id="no-nonsense-simple-lightbox-plugin" class="anchor" href="#no-nonsense-simple-lightbox-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>No nonsense, simple Lightbox plugin.</h1>
 
 <p><strong>Simple usage, no styles, no pseudo-elements, no nonsense.</strong></p>
 
 <p>In short, add the <code>simpleplugin.js</code> and initialize method:</p>
 
-<pre><code>&lt;script&gt;
-    $('.dugme').lightbox({
-      button: '.dugme',
-      lightbox: '.lightbox',
-      curtainId: '#curtain',
-      closeButtonId: '#close',
-      effect: 'fade'
-    });
-&lt;/script&gt;
+<pre><code>    &lt;script&gt;
+        $('.dugme').lightbox({
+          button: '.dugme',
+          lightbox: '.lightbox',
+          curtainId: '#curtain',
+          closeButtonId: '#close',
+          effect: 'fade'
+        });
+    &lt;/script&gt;
 </code></pre>
 
 <p>Now for the long version:</p>
@@ -72,32 +71,38 @@
 </ol>
 
 <blockquote>
-<p><strong>Have jQuery</strong></p>
+<h3>
+<a id="have-jquery" class="anchor" href="#have-jquery" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Have jQuery</h3>
 
 <p>This plugin requires jQuery, since it uses jQuery selectors and
 simpler jQuery methods like <code>.on() | .toggle() | .css()</code> Also, this
 code itself is wrapped up as a jQuery plugin.</p>
 
-<p><strong>Add the <code>plugin .js</code></strong></p>
+<h3>
+<a id="add-the-plugin-js" class="anchor" href="#add-the-plugin-js" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add the <code>plugin .js</code>
+</h3>
 
 <p>One should embed the <code>simpleplugin.js</code> on the bottom of the body. This
 is done by adding a line just before closing the body tag on the page:</p>
 
-<p><strong>Feed the plugin</strong></p>
+<h3>
+<a id="feed-the-plugin" class="anchor" href="#feed-the-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feed the plugin</h3>
 
 <p>In order to work, our plugin needs some information. Add this code
 within  tags, after the plugin inclusion.</p>
 
-<p><code>&lt;script&gt;
-    $('.dugme').lightbox({
-      button: '.dugme',
-      lightbox: '.lightbox',
-      curtainId: '#curtain',
-      closeButtonId: '#close',
-      effect: 'fade'
-    });
-&lt;/script&gt;</code>
-Here are some details about the
+<pre><code>  &lt;script&gt;
+      $('.dugme').lightbox({
+        button: '.dugme',
+        lightbox: '.lightbox',
+        curtainId: '#curtain',
+        closeButtonId: '#close',
+        effect: 'fade'
+      });
+  &lt;/script&gt;
+</code></pre>
+
+<p>Here are some details about the
 parameters:</p>
 
 <ul>
@@ -117,35 +122,33 @@ parameters:</p>
 <h2>
 <a id="3-pros--cons" class="anchor" href="#3-pros--cons" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Pros &amp; Cons</h2>
 
-<p>Pros are evident. You can style your elements however you may like. Plugin will not care about them.</p>
+<p><strong>Pros:</strong> Are evident. You can style your elements however you may like. Plugin will not care about them.</p>
 
 <p>I am not a magician, so there ought to be some pros and cons.</p>
 
-<p>The plugin adds almost no css. Almost? Well since it creates a new <code>#curtain</code> element, it embeds some inline styles to it:</p>
+<p><strong>Cons:</strong> The plugin adds almost no css. Almost? Well since it creates a new <code>#curtain</code> element, it embeds some inline styles to it:</p>
 
-<pre><code>'display' : 'none', // Hide it
-'height' : '100vh', // Cover the entire window
-'width' : '100vw',  // Cover the entire window
-'z-index' : '99998',    // Be on top of everything
-'position' : 'fixed',   // Position 
-'top' : 0,      // Position
-'left' : 0,     // Position
-'background-color' : 'rgba(0,0,0,0.5)'
+<pre><code>    'display' : 'none', // Hide it
+    'height' : '100vh', // Cover the entire window
+    'width' : '100vw',  // Cover the entire window
+    'z-index' : '99998',    // Be on top of everything
+    'position' : 'fixed',   // Position 
+    'top' : 0,      // Position
+    'left' : 0,     // Position
+    'background-color' : 'rgba(0,0,0,0.5)'
 </code></pre>
 
 <p>But wait, that is not the main issue here. In order to hide and show the lightbox we need to add some styles to it also. This may mean that some of your CSS properties will get overwritten.</p>
 
-<pre><code>'display': 'none',
-'z-index': '99999',
-'position' : 'fixed',
-'top' : '50%',
-'left' : '50%',
-'transform' : 'translate(-50%,-50%)'
+<pre><code>    'display': 'none',
+    'z-index': '99999',
+    'position' : 'fixed',
+    'top' : '50%',
+    'left' : '50%',
+    'transform' : 'translate(-50%,-50%)'
 </code></pre>
 
 <p>So if you would like to make something different, you would need to edit these lines in the plugin <code>simpleplugin.js</code></p>
-
-<hr>
 
 <h2>
 <a id="4-towards-the-future-and-beyond" class="anchor" href="#4-towards-the-future-and-beyond" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Towards the future, and beyond...</h2>
@@ -158,25 +161,13 @@ parameters:</p>
 <li>Allow user to set z-index of both elements via parameters</li>
 <li>Allow user to pick the rgba color for the #curtain</li>
 </ul>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/markomitranic/simplelightbox.js/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/markomitranic/simplelightbox.js/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/markomitranic/simplelightbox.js"></a> is maintained by <a href="https://github.com/markomitranic">markomitranic</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
     </div>
-
-  
+    <footer>
+      <p>Project maintained by <a href="https://github.com/markomitranic">markomitranic</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
 </html>
