@@ -97,6 +97,7 @@
             } else if (options.effect == 'zoom') {
                 options.lightboxEl.fadeToggle();
                 options.curtainEl.fadeToggle();
+                console.log('Sorry, zoom effect has not been working properly in this version. Falling back to fade.')
             } else {
                 options.lightboxEl.fadeToggle();
                 options.curtainEl.fadeToggle();

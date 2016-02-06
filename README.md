@@ -115,6 +115,6 @@ So if you would like to make something different, you would need to edit these l
 This plugin is not actively developed anymore, but i do have some ideas for the future:
 
 - Allow parameter to change the position to absolute
-- Transition effects parameter was actually never written.
+- Transition effects Zoom parameter was actually never written.
 - Allow user to set z-index of both elements via parameters
 - Allow user to pick the rgba color for the #curtain
