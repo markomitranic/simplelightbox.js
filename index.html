@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Simplelightbox.js by markomitranic</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Simplelightbox.js</h1>
+        <h2>No nonsense, simple Lightbox plugin. Simple usage, no styles, no pseudo-elements, no nonsense.</h2>
+        <a href="https://github.com/markomitranic/simplelightbox.js" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="no-nonsense-simple-lightbox-plugin" class="anchor" href="#no-nonsense-simple-lightbox-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>No nonsense, simple Lightbox plugin.</h1>
+
+<p><strong>Simple usage, no styles, no pseudo-elements, no nonsense.</strong></p>
+
+<p>In short, add the <code>simpleplugin.js</code> and initialize method:</p>
+
+<pre><code>&lt;script&gt;
+    $('.dugme').lightbox({
+      button: '.dugme',
+      lightbox: '.lightbox',
+      curtainId: '#curtain',
+      closeButtonId: '#close',
+      effect: 'fade'
+    });
+&lt;/script&gt;
+</code></pre>
+
+<p>Now for the long version:</p>
+
+<hr>
+
+<h2>
+<a id="1-prelude" class="anchor" href="#1-prelude" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Prelude</h2>
+
+<p><strong>So, am making a website, see, and i need to have a lightbox at one point, right?</strong></p>
+
+<p>I go to Google, search for a lightbox, and find a bunch of 30+kb <strong>omni-potent</strong> plugins with all these spectacular options and styles. Some of them even use additional external plugins! If i would try to use any of them, i would find out that there is little-to-none documentation on real world usage.</p>
+
+<p>So 2h later, i am still pulling my hair out, trying to overwrite !important inline styles that the stupid plugin has embeded. I finish doing that, now the curtain doesn't work for some reason. After 20min of fixing the curtain, everything works fine, but i begin to notice that the animation is a bit laggy.</p>
+
+<p>I burned all .js files in a moment of unimaginable fury and wrote my own plugin within 20minutes.</p>
+
+<h2>
+<a id="2-usage-for-dummies" class="anchor" href="#2-usage-for-dummies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Usage for Dummies</h2>
+
+<ol>
+<li>Have jQuery.</li>
+<li>Add the plugin <code>simpleplugin.js</code>
+</li>
+<li>Feed the plugin with the right parameters</li>
+</ol>
+
+<blockquote>
+<p><strong>Have jQuery</strong></p>
+
+<p>This plugin requires jQuery, since it uses jQuery selectors and
+simpler jQuery methods like <code>.on() | .toggle() | .css()</code> Also, this
+code itself is wrapped up as a jQuery plugin.</p>
+
+<p><strong>Add the <code>plugin .js</code></strong></p>
+
+<p>One should embed the <code>simpleplugin.js</code> on the bottom of the body. This
+is done by adding a line just before closing the body tag on the page:</p>
+
+<p><strong>Feed the plugin</strong></p>
+
+<p>In order to work, our plugin needs some information. Add this code
+within  tags, after the plugin inclusion.</p>
+
+<p><code>&lt;script&gt;
+    $('.dugme').lightbox({
+      button: '.dugme',
+      lightbox: '.lightbox',
+      curtainId: '#curtain',
+      closeButtonId: '#close',
+      effect: 'fade'
+    });
+&lt;/script&gt;</code>
+Here are some details about the
+parameters:</p>
+
+<ul>
+<li>
+<code>button = [selector string]</code> (You must specify the jQuery selector for the button that will open the lightbox)</li>
+<li>
+<code>lightbox = [selector string]</code> (Also you must specify the jQuery selector for the element that you want to be shown.)</li>
+<li>
+<code>curtainId = [selector string]</code> (OPTIONAL: By default, lugin will create its own curtain with the ID #curtain. But if you want it named anything else, you may specify the ID here.)</li>
+<li>
+<code>closeButtonId = [selector string]</code> (OPTIONAL: You can define additional button ID that will close the lightbox. People usually put X button within the lightbox itself.)</li>
+<li>
+<code>effect = [string]</code> (OPTIONAL: slide, zoom,  fade[default])</li>
+</ul>
+</blockquote>
+
+<h2>
+<a id="3-pros--cons" class="anchor" href="#3-pros--cons" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Pros &amp; Cons</h2>
+
+<p>Pros are evident. You can style your elements however you may like. Plugin will not care about them.</p>
+
+<p>I am not a magician, so there ought to be some pros and cons.</p>
+
+<p>The plugin adds almost no css. Almost? Well since it creates a new <code>#curtain</code> element, it embeds some inline styles to it:</p>
+
+<pre><code>'display' : 'none', // Hide it
+'height' : '100vh', // Cover the entire window
+'width' : '100vw',  // Cover the entire window
+'z-index' : '99998',    // Be on top of everything
+'position' : 'fixed',   // Position 
+'top' : 0,      // Position
+'left' : 0,     // Position
+'background-color' : 'rgba(0,0,0,0.5)'
+</code></pre>
+
+<p>But wait, that is not the main issue here. In order to hide and show the lightbox we need to add some styles to it also. This may mean that some of your CSS properties will get overwritten.</p>
+
+<pre><code>'display': 'none',
+'z-index': '99999',
+'position' : 'fixed',
+'top' : '50%',
+'left' : '50%',
+'transform' : 'translate(-50%,-50%)'
+</code></pre>
+
+<p>So if you would like to make something different, you would need to edit these lines in the plugin <code>simpleplugin.js</code></p>
+
+<hr>
+
+<h2>
+<a id="4-towards-the-future-and-beyond" class="anchor" href="#4-towards-the-future-and-beyond" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Towards the future, and beyond...</h2>
+
+<p>This plugin is not actively developed, but i have some ideas for the future:</p>
+
+<ul>
+<li>Allow parameter to change the position fixed/relative for #lightbox</li>
+<li>Transition effects parameter was actually never written.</li>
+<li>Allow user to set z-index of both elements via parameters</li>
+<li>Allow user to pick the rgba color for the #curtain</li>
+</ul>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/markomitranic/simplelightbox.js/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/markomitranic/simplelightbox.js/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/markomitranic/simplelightbox.js"></a> is maintained by <a href="https://github.com/markomitranic">markomitranic</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
