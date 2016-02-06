@@ -97,6 +97,7 @@ within  tags, after the plugin inclusion.</p>
         lightbox: '.lightbox',
         curtainId: '#curtain',
         closeButtonId: '#close',
+        lightboxPosition: 'fixed',
         effect: 'fade'
       });
   &lt;/script&gt;
@@ -114,6 +115,8 @@ parameters:</p>
 <code>curtainId = [selector string]</code> (OPTIONAL: By default, lugin will create its own curtain with the ID #curtain. But if you want it named anything else, you may specify the ID here.)</li>
 <li>
 <code>closeButtonId = [selector string]</code> (OPTIONAL: You can define additional button ID that will close the lightbox. People usually put X button within the lightbox itself.)</li>
+<li>
+<code>lightboxPosition = [string: fxed || relative]</code> (OPTIONAL: You can define if you want the <code>#lightbox</code> element to be relative or fixed positioned),</li>
 <li>
 <code>effect = [string]</code> (OPTIONAL: slide, zoom,  fade[default])</li>
 </ul>
@@ -153,11 +156,11 @@ parameters:</p>
 <h2>
 <a id="4-towards-the-future-and-beyond" class="anchor" href="#4-towards-the-future-and-beyond" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Towards the future, and beyond...</h2>
 
-<p>This plugin is not actively developed, but i have some ideas for the future:</p>
+<p>This plugin is not actively developed anymore, but i do have some ideas for the future:</p>
 
 <ul>
-<li>Allow parameter to change the position fixed/relative for #lightbox</li>
-<li>Transition effects parameter was actually never written.</li>
+<li>Allow parameter to change the position to absolute</li>
+<li>Transition effects Zoom parameter was actually never written.</li>
 <li>Allow user to set z-index of both elements via parameters</li>
 <li>Allow user to pick the rgba color for the #curtain</li>
 </ul>
