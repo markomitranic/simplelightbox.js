@@ -63,6 +63,7 @@ I burned all .js files in a moment of unimaginable fury and wrote my own plugin 
 >         lightbox: '.lightbox',
 >         curtainId: '#curtain',
 >         closeButtonId: '#close',
+>         lightboxPosition: 'fixed',
 >         effect: 'fade'
 >       });
 >   </script>
@@ -74,6 +75,7 @@ I burned all .js files in a moment of unimaginable fury and wrote my own plugin 
 > - `lightbox = [selector string]` (Also you must specify the jQuery selector for the element that you want to be shown.)
 > - `curtainId = [selector string]` (OPTIONAL: By default, lugin will create its own curtain with the ID #curtain. But if you want it named anything else, you may specify the ID here.)
 > - `closeButtonId = [selector string]` (OPTIONAL: You can define additional button ID that will close the lightbox. People usually put X button within the lightbox itself.)
+> - `lightboxPosition = [string: fxed || relative]` (OPTIONAL: You can define if you want the `#lightbox` element to be relative or fixed positioned),
 > - `effect = [string]` (OPTIONAL: slide, zoom,  fade[default])
 
 ## 3. Pros & Cons

@@ -23,12 +23,17 @@
 
         function allowLightbox(settings) {
 
-            // Set default values for parameters not set.
+            // Set default values for parameters that have not been set.
             var options = $.extend({
                 curtain: '#curtain',
+                lightboxPosition: 'fixed',
                 effect: 'fade'
             }, settings);
-
+            // We have to check if the lightboxPosition is set to fixed || relative. If not, force it.
+            if ((options.lightboxPosition !== 'relative') || (options.lightboxPosition !== 'fixed')) {
+                console.log('lightboxPosition can only be \'fixed\' or \'relative\'. Falling back to Fixed.')
+                options.lightboxPosition = 'fixed';
+            }
             // Add the selector removing method. Removes # or . from options values first letter.
             options.removeSelector = function(selector) {
                 return selector.substring(1);
@@ -59,7 +64,7 @@
             lightbox.css({
                 'display': 'none',
                 'z-index': '99999',
-                'position': 'fixed',
+                'position': options.lightboxPosition,
                 'top': '50%',
                 'left': '50%',
                 'transform': 'translate(-50%,-50%)'
