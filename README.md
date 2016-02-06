@@ -85,24 +85,24 @@ I am not a magician, so there ought to be some pros and cons.
 **Cons:** The plugin adds almost no css. Almost? Well since it creates a new `#curtain` element, it embeds some inline styles to it:
 
 ```
-    'display' : 'none', // Hide it
-    'height' : '100vh', // Cover the entire window
-    'width' : '100vw',  // Cover the entire window
-    'z-index' : '99998',    // Be on top of everything
-    'position' : 'fixed',   // Position 
-    'top' : 0,      // Position
-    'left' : 0,     // Position
-    'background-color' : 'rgba(0,0,0,0.5)'
+    'display' : 'none',                     // Hide it
+    'height' : '100vh',                     // Cover the entire window
+    'width' : '100vw',                      // Cover the entire window
+    'z-index' : '99998',                    // Be on top of everything
+    'position' : 'fixed',                   // Position 
+    'top' : 0,                              // Position 0
+    'left' : 0,                             // Position 0
+    'background-color' : 'rgba(0,0,0,0.5)'  // Set color and opacity
 ```
 
 But wait, that is not the main issue here. In order to hide and show the lightbox we need to add some styles to it also. This may mean that some of your CSS properties will get overwritten.
 ```
-    'display': 'none',
-    'z-index': '99999',
-    'position' : 'fixed',
-    'top' : '50%',
-    'left' : '50%',
-    'transform' : 'translate(-50%,-50%)'
+    'display': 'none',                      // Hide the element
+    'z-index': '99999',                     // Put it on top of everything
+    'position' : 'fixed',                   // Position
+    'top' : '50%',                          // Position on center of the screen
+    'left' : '50%',                         // Position on center of the screen
+    'transform' : 'translate(-50%,-50%)'    // A cute hack to exactly center the div
 ```
 
 So if you would like to make something different, you would need to edit these lines in the plugin `simpleplugin.js`
