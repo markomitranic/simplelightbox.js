@@ -69,7 +69,6 @@
 
 
             // Add the listener to the lightbox button
-            var listenerArray = [];
 
             $(document).on('click', options.button, function() {
                 lightbox.fadeToggle();
