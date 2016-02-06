@@ -30,7 +30,7 @@
                 effect: 'fade'
             }, settings);
             // We have to check if the lightboxPosition is set to fixed || relative. If not, force it.
-            if ((options.lightboxPosition !== 'relative') || (options.lightboxPosition !== 'fixed')) {
+            if ((options.lightboxPosition !== 'relative') && (options.lightboxPosition !== 'fixed')) {
                 console.log('lightboxPosition can only be \'fixed\' or \'relative\'. Falling back to Fixed.')
                 options.lightboxPosition = 'fixed';
             }

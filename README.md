@@ -112,9 +112,9 @@ So if you would like to make something different, you would need to edit these l
 
 ## 4. Towards the future, and beyond...
 
-This plugin is not actively developed, but i have some ideas for the future:
+This plugin is not actively developed anymore, but i do have some ideas for the future:
 
-- Allow parameter to change the position fixed/relative for #lightbox
+- Allow parameter to change the position to absolute
 - Transition effects parameter was actually never written.
 - Allow user to set z-index of both elements via parameters
 - Allow user to pick the rgba color for the #curtain
